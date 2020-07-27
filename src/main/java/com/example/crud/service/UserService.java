@@ -6,6 +6,8 @@ import com.example.crud.repository.RoleRepo;
 import com.example.crud.repository.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.factory.PasswordEncoderFactories;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
@@ -29,6 +31,7 @@ public class UserService implements IUserService {
     public void save(User user) {
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
         user.setPassword(passwordEncoder.encode(user.getPassword()));
+        user.setPassword(user.getPassword());
         Set<Role> roles = new HashSet<>();
         roles.add(roleRepo.getOne(1L));
         user.setRoles(roles);
