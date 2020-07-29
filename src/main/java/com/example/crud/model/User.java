@@ -18,11 +18,12 @@ public class User {
     private Long id;
     private String username;
     private String password;
-
     @Transient
     private String confirmPassword;
+    private Boolean status;
+    private String phoneNumber;
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "user_roles", joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<Role> roles;

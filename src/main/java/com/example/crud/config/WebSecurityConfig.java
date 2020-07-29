@@ -23,7 +23,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .httpBasic()
                 .and()
                 .authorizeRequests()
-                .antMatchers(HttpMethod.GET, "/accounts/**").hasRole("USER")
+                .antMatchers(HttpMethod.GET, "/accounts/**").hasRole("ADMIN")
                 .antMatchers(HttpMethod.POST, "/accounts").hasRole("ADMIN")
                 .antMatchers(HttpMethod.PUT, "/accounts/**").hasRole("ADMIN")
                 .antMatchers(HttpMethod.PATCH, "/accounts/**").hasRole("ADMIN")
