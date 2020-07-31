@@ -37,15 +37,15 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .authorizeRequests()
                 .antMatchers(HttpMethod.GET, "/accounts/**").hasRole("USER")
-                .antMatchers(HttpMethod.POST, "/accounts").hasRole("ADMIN")
-                .antMatchers(HttpMethod.PUT, "/accounts/**").hasRole("ADMIN")
-                .antMatchers(HttpMethod.PATCH, "/accounts/**").hasRole("ADMIN")
-                .antMatchers(HttpMethod.DELETE, "/accounts/**").hasRole("ADMIN")
-                .antMatchers(HttpMethod.POST, "/users/**").hasRole("USER")
-                .antMatchers(HttpMethod.POST, "/users/**").hasRole("ADMIN")
-                .antMatchers(HttpMethod.POST, "/users/**").hasRole("MODERATOR");
-//                .and()
-//                .csrf().disable();
+//                .antMatchers(HttpMethod.POST, "/accounts").hasRole("ADMIN")
+//                .antMatchers(HttpMethod.PUT, "/accounts/**").hasRole("ADMIN")
+//                .antMatchers(HttpMethod.PATCH, "/accounts/**").hasRole("ADMIN")
+//                .antMatchers(HttpMethod.DELETE, "/accounts/**").hasRole("ADMIN")
+//                .antMatchers(HttpMethod.POST, "/users/**").hasRole("USER")
+//                .antMatchers(HttpMethod.POST, "/users/**").hasRole("ADMIN")
+//                .antMatchers(HttpMethod.POST, "/users/**").hasRole("MODERATOR");
+                .and()
+                .csrf().disable();
 //                .formLogin().disable();
     }
 
@@ -59,8 +59,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         return authenticationManager();
     }
 
-    @Autowired
-    protected void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
+    @Override
+    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.userDetailsService(userDetailsService).passwordEncoder(bCryptPasswordEncoder());
     }
 }

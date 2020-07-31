@@ -34,17 +34,17 @@ public class UserService implements IUserService {
     public void save(User user) {
 //        BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 
-//        String idForEncode = "bcrypt";
-//        Map encoders = new HashMap<>();
-//        encoders.put(idForEncode, new BCryptPasswordEncoder());
-//        PasswordEncoder passwordEncoder =
-//                new DelegatingPasswordEncoder(idForEncode, encoders);
+        String idForEncode = "bcrypt";
+        Map encoders = new HashMap<>();
+        encoders.put(idForEncode, new BCryptPasswordEncoder());
+        PasswordEncoder passwordEncoder =
+                new DelegatingPasswordEncoder(idForEncode, encoders);
 
 
-//        user.setPassword(passwordEncoder.encode(user.getPassword()));
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
 //        user.setPassword(user.getPassword());
-        String encodedPassword = bCryptPasswordEncoder.encode(user.getPassword());
-        user.setPassword(encodedPassword);
+//        String encodedPassword = bCryptPasswordEncoder.encode(user.getPassword());
+//        user.setPassword(encodedPassword);
         Set<Role> roles = new HashSet<>();
         roles.add(roleRepo.getOne(1L));
         user.setRoles(roles);

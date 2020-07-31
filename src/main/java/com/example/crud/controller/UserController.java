@@ -3,6 +3,7 @@ package com.example.crud.controller;
 import com.example.crud.model.User;
 import com.example.crud.service.SecurityService;
 import com.example.crud.service.UserService;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
